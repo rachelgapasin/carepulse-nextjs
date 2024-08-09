@@ -16,7 +16,7 @@ export enum FormFieldType {
   TEXTAREA = "textarea",
   PHONE_INPUT = "phoneInput",
   CHECKBOX = "checkbox",
-  DATA_PICKER = "datePicker",
+  DATE_PICKER = "datePicker",
   SELECT = "select",
   SKELETON = "skeleton",
 }
@@ -50,6 +50,8 @@ const PatientForm = () => {
     } catch (error) {
       console.log(error);
     }
+
+    setIsLoading(false);
   }
 
   return (
@@ -65,7 +67,7 @@ const PatientForm = () => {
           fieldType={FormFieldType.INPUT}
           name="name"
           label="Full Name"
-          placeholder="John Doe"
+          placeholder="ex: John Doe"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
@@ -75,7 +77,7 @@ const PatientForm = () => {
           fieldType={FormFieldType.INPUT}
           name="email"
           label="Email Address"
-          placeholder="johndoe@email.com"
+          placeholder="ex: johndoe@email.com"
           iconSrc="/assets/icons/email.svg"
           iconAlt="email"
         />
@@ -85,7 +87,7 @@ const PatientForm = () => {
           fieldType={FormFieldType.PHONE_INPUT}
           name="phone"
           label="Phone Number"
-          placeholder="(555) 123-4567"
+          placeholder="ex: (555) 123-4567"
         />
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>

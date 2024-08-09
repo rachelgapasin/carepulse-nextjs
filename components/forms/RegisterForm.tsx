@@ -70,6 +70,8 @@ const RegisterForm = ({ user }: { user: User }) => {
     } catch (error) {
       console.log(error);
     }
+
+    setIsLoading(false);
   }
 
   return (
@@ -95,7 +97,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           fieldType={FormFieldType.INPUT}
           name="name"
           label="Full Name"
-          placeholder="John Doe"
+          placeholder="ex: John Doe"
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
@@ -106,7 +108,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             name="email"
             label="Email Address"
-            placeholder="johndoe@email.com"
+            placeholder="ex: johndoe@email.com"
             iconSrc="/assets/icons/email.svg"
             iconAlt="email"
           />
@@ -116,14 +118,14 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.PHONE_INPUT}
             name="phone"
             label="Phone Number"
-            placeholder="(555) 123-4567"
+            placeholder="ex: (555) 123-4567"
           />
         </div>
 
         <div className="flex flex-col gap-6 xl:flex-row">
           <CustomFormField
             control={form.control}
-            fieldType={FormFieldType.DATA_PICKER}
+            fieldType={FormFieldType.DATE_PICKER}
             name="birthDate"
             label="Date of Birth"
             placeholder="Select your birth date"
@@ -161,7 +163,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             name="address"
             label="Address"
-            placeholder="123 14th St, Manhattan, NY 10011"
+            placeholder="ex: 123 14th St, Manhattan, NY 10011"
           />
 
           <CustomFormField
@@ -169,7 +171,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             name="occupation"
             label="Occupation"
-            placeholder="Software Engineer"
+            placeholder="ex: Software Engineer"
           />
         </div>
 
@@ -187,7 +189,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.PHONE_INPUT}
             name="emergencyContactNumber"
             label="Emergency Contact Number"
-            placeholder="(555) 765-4321"
+            placeholder="ex: (555) 765-4321"
           />
         </div>
 
@@ -203,7 +205,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           fieldType={FormFieldType.SELECT}
           name="primaryPhysician"
           label="Primacy Care Physician"
-          placeholder="Select a physician"
+          placeholder="ex: Select a physician"
         >
           {Doctors.map((doctor) => (
             <SelectItem key={doctor.name} value={doctor.name}>
@@ -227,7 +229,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             name="insuranceProvider"
             label="Insurance Provider"
-            placeholder="BlueCross BlueShield"
+            placeholder="ex: BlueCross BlueShield"
           />
 
           <CustomFormField
@@ -235,7 +237,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.INPUT}
             name="insurancePolicyNumber"
             label="Insurance Policy Number"
-            placeholder="ABC1234567"
+            placeholder="ex: ABC1234567"
           />
         </div>
 
@@ -245,7 +247,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.TEXTAREA}
             name="allergies"
             label="Allergies (if any)"
-            placeholder="Peanuts, Penicillin, Pollen"
+            placeholder="ex: Peanuts, Penicillin, Pollen"
           />
 
           <CustomFormField
@@ -253,7 +255,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.TEXTAREA}
             name="currentMedication"
             label="Current Medication(s) (if any)"
-            placeholder="Ibuprofen 200mg, Levothyroxine 50 mcg"
+            placeholder="ex: Ibuprofen 200mg, Levothyroxine 50 mcg"
           />
         </div>
 
@@ -263,7 +265,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.TEXTAREA}
             name="familyMedicalHistory"
             label="Family Medical History"
-            placeholder="Mother has breast cancer, father had heart disease"
+            placeholder="ex: Mother has breast cancer, father had heart disease"
           />
 
           <CustomFormField
@@ -271,7 +273,7 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.TEXTAREA}
             name="pastMedicalHistory"
             label="Past Medical History"
-            placeholder="Asthma diagnosis in childhood"
+            placeholder="ex: Asthma diagnosis in childhood"
           />
         </div>
 
@@ -303,7 +305,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           fieldType={FormFieldType.INPUT}
           name="identificationNumber"
           label="Identification Number"
-          placeholder="123456789"
+          placeholder="ex: 123456789"
         />
 
         <CustomFormField

@@ -13,7 +13,7 @@ export default function Home() {
             src="/assets/icons/logo-full.svg"
             width={1000}
             height={1000}
-            alt="Patient"
+            alt="CarePulse Logo"
             className="mb-12 h-10 w-fit"
           />
 
