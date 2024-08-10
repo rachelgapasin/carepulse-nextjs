@@ -1,5 +1,6 @@
 import AppointmentForm from "@/components/forms/AppointmentForm";
 import { getPatient } from "@/lib/actions/patient.actions";
+import Link from "next/link";
 import Image from "next/image";
 
 const NewAppointment = async ({ params: { userId } }: SearchParamProps) => {
@@ -9,13 +10,15 @@ const NewAppointment = async ({ params: { userId } }: SearchParamProps) => {
     <div className="flex h-screen max-h-screen">
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[860px] flex-1 justify-between">
-          <Image
-            src="/assets/icons/logo-full.svg"
-            width={1000}
-            height={1000}
-            alt="CarePulse Logo"
-            className="mb-12 h-10 w-fit"
-          />
+          <Link href="/" className="cursor-pointer">
+            <Image
+              src="/assets/icons/logo-full.svg"
+              width={1000}
+              height={1000}
+              alt="CarePulse Logo"
+              className="mb-12 h-10 w-fit"
+            />
+          </Link>
 
           <AppointmentForm
             type="create"

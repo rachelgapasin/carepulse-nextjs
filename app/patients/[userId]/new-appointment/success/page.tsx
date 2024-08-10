@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAppointment } from "@/lib/actions/appointment.actions";
 import { Doctors } from "@/constants";
-import { formatDate } from "react-datepicker/dist/date_utils";
 import { formatDateTime } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -20,7 +19,7 @@ const Success = async ({
   return (
     <div className="flex h-screen max-h-screen px-[5%]">
       <div className="success-img">
-        <Link href="/">
+        <Link href="/" className="cursor-pointer">
           <Image
             src="/assets/icons/logo-full.svg"
             width={1000}
