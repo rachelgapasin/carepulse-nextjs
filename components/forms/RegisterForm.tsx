@@ -31,20 +31,20 @@ const RegisterForm = ({ user }: { user: User }) => {
     resolver: zodResolver(PatientFormValidation),
     defaultValues: {
       ...PatientFormDefaultValues,
-      name: user?.name || "",
-      email: user?.email || "",
-      phone: user?.phone || "",
+      name: user.name,
+      email: user.email,
+      phone: user.phone,
     },
   });
 
-  async function onSubmit(values: z.infer<typeof PatientFormValidation>) {
+  const onSubmit = async (values: z.infer<typeof PatientFormValidation>) => {
     setIsLoading(true);
 
+    // Store file info in form data as
     let formData;
-
     if (
       values.identificationDocument &&
-      values.identificationDocument.length > 0
+      values.identificationDocument?.length > 0
     ) {
       const blobFile = new Blob([values.identificationDocument[0]], {
         type: values.identificationDocument[0].type,
@@ -56,7 +56,7 @@ const RegisterForm = ({ user }: { user: User }) => {
     }
 
     try {
-      const patientData = {
+      const patient = {
         userId: user.$id,
         name: values.name,
         email: values.email,
@@ -82,15 +82,17 @@ const RegisterForm = ({ user }: { user: User }) => {
         privacyConsent: values.privacyConsent,
       };
 
-      const patient = await registerPatient(patientData);
+      const newPatient = await registerPatient(patient);
 
-      if (patient) router.push(`/patients/${user.$id}/new-appointment`);
+      if (newPatient) {
+        router.push(`/patients/${user.$id}/new-appointment`);
+      }
     } catch (error) {
       console.log(error);
     }
 
     setIsLoading(false);
-  }
+  };
 
   return (
     <Form {...form}>
