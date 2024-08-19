@@ -80,10 +80,10 @@ const AppointmentForm = ({
         const appointment = await createAppointment(appointmentData);
 
         if (appointment) {
-          form.reset();
           router.push(
             `/patients/${userId}/new-appointment/success?appointmentId=${appointment.$id}`
           );
+          form.reset();
         }
       } else {
         const appointmentToUpdate = {
