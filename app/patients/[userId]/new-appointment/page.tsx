@@ -16,7 +16,7 @@ const NewAppointment = async ({ params: { userId } }: SearchParamProps) => {
               width={1000}
               height={1000}
               alt="CarePulse Logo"
-              className="mb-12 h-10 w-fit"
+              className="mb-12 max-h-10 w-fit"
             />
           </Link>
 

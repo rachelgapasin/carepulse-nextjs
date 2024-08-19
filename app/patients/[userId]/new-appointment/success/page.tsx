@@ -25,7 +25,7 @@ const Success = async ({
             width={1000}
             height={1000}
             alt="CarePulse Logo"
-            className="h-10 w-fit"
+            className="max-h-10 w-fit"
           />
         </Link>
 
