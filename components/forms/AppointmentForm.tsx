@@ -92,6 +92,7 @@ const AppointmentForm = ({
           appointment: {
             primaryPhysician: values?.primaryPhysician,
             schedule: new Date(values?.schedule),
+            reason: values.reason!,
             status: status as Status,
             cancellationReason: values?.cancellationReason,
           },
